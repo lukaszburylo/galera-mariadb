@@ -8,4 +8,7 @@ RUN sudo add-apt-repository "deb http://mirror.jmu.edu/pub/mariadb/repo/10.0/ubu
 RUN apt-get update
 RUN apt-get install -y mariadb-client mariadb-galera-server galera
 
-CMD ["/bin/bash"]
+VOLUME /var/lib/mysql
+
+EXPOSE 3306 4444 4567 4568
+CMD ["mysqld"]

@@ -4,7 +4,7 @@ MAINTAINER Lukasz Burylo <lukasz@burylo.com>
 RUN apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 0xcbcb082a1bb943db
 RUN echo "deb http://mirror.jmu.edu/pub/mariadb/repo/10.0/ubuntu trusty main" >> /etc/apt/sources.list
 RUN apt-get update
-RUN apt-get install -y mariadb-client mariadb-galera-server galera --no-install-recommends && rm rf /var/lib/apt/lists/*
+RUN apt-get install -y mariadb-client mariadb-galera-server galera --no-install-recommends && rm -rf /var/lib/apt/lists/*
 
 ADD my.cnf /etc/mysql/my.cnf
 

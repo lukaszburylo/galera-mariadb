@@ -1,6 +1,8 @@
 FROM ubuntu:14.04
 MAINTAINER Lukasz Burylo <lukasz@burylo.com>
 
+RUN groupadd -r mysql && useradd -r -g mysql mysql
+
 RUN apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 0xcbcb082a1bb943db
 RUN echo "deb http://mirror.jmu.edu/pub/mariadb/repo/10.0/ubuntu trusty main" >> /etc/apt/sources.list
 RUN apt-get update

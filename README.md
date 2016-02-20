@@ -1,9 +1,22 @@
+# INFO !
+Image works only with Docker >= 1.10.1  !
+
 ## Simple usage
 
 ```
 docker run -d -v /path/to/my.cnf:/etc/mysql/my.cnf:ro -p 3306:3306 -p 4444:4444 -p 4567:4567 -p 4568:4568 lukaszburylo/galera-mariadb
 ```
 
+## Running with external datadir
+
+```
+docker run -d -v /path/to/datadir:/var/lib/mysql -v /path/to/my.cnf:/etc/mysql/my.cnf:ro -p 3306:3306 -p 4444:4444 -p 4567:4567 -p 4568:4568 lukaszburylo/galera-mariadb
+```
+
+## First node in cluster should be running like that:
+```
+docker run -d -v /path/to/my.cnf:/etc/mysql/my.cnf:ro -p 3306:3306 -p 4444:4444 -p 4567:4567 -p 4568:4568 lukaszburylo/galera-mariadb mysqld --wsrep-new-cluster
+```
 
 ## Example my.cnf file
 

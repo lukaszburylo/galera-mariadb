@@ -10,6 +10,8 @@ RUN apt-get install -y mariadb-client mariadb-galera-server galera --no-install-
 
 ADD my.cnf /etc/mysql/my.cnf
 
+RUN chown -R mysql:mysql /var/lib/mysql
+
 VOLUME /var/lib/mysql
 
 EXPOSE 3306 4444 4567 4568
